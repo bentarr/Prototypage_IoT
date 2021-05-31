@@ -10,6 +10,8 @@
     <h1 class="display-4">[EPSI] Application utilisant un web service</h1>
     <hr class="my-4">
     <p>Notre application utilise l'api publique de themoviedb via des appels http.</p>
+
+    {{> loginButtons}}
   </div>
   {{> filterselect}}
   {{> pagination}}
@@ -27,6 +29,7 @@
 </body>
 
 <template name='films'>
+{{#if currentUser}}
   {{ #if doitSafficher }}
     <div class="accordion" id='accordion'>
       {{ #each movies }}
@@ -65,9 +68,11 @@
       <div class="col-5"></div>
     </div>
   {{ /if }}
+{{/if}}
 </template>
 
 <template name='pagination'>
+{{#if currentUser}}
   {{ #if doitSafficher }}
     <div style='text-align: center; margin-bottom: 20px; margin-top: 20px;'>
       <button style='display: inline;' id='pagePrecedente' class="btn btn-outline-info">&laquo;</button>
@@ -75,6 +80,7 @@
       <button style='display: inline;' id='pageSuivante' class="btn btn-outline-info">&raquo;</button>
     </div>
   {{ /if }}
+{{/if}}
 </template>
 
 <template name='filterselect'>
