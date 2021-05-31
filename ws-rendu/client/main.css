@@ -1,0 +1,29 @@
+body {
+  padding: 1%;
+}
+
+.footer {
+  bottom: 80px;
+  text-align: center;
+  height: 80px;
+  background-color: white;
+  color: black;
+  width: 100%;
+}
+
+.pagination {
+  margin-right: 10px; 
+  margin-left: 10px
+}
+
+img {
+  border-radius: 50px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#filterform {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
