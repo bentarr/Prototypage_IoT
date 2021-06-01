@@ -2,27 +2,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>[EPSI] Web services</title>
+  <title>[EPSI] Prototypage IoT</title>
 </head>
 
 <body>
   <div class="jumbotron">
-    <h1 class="display-4">[EPSI] Application utilisant un web service</h1>
+    <h1 class="display-4">[EPSI] Prototypage d’objet connecté (IoT).</h1>
     <hr class="my-4">
-    <p>Notre application utilise l'api publique de themoviedb via des appels http.</p>
+    <p style="font-size: 20px;">Tableau de bord de vos objets connectés.</p>
 
-    {{> loginButtons}}
+    <p class="connexion"> Connexion : {{> loginButtons}} </p>
   </div>
-  {{> filterselect}}
-  {{> pagination}}
+
   {{> films}}
-  {{> pagination}}
+
+
   <footer class="footer">
     <hr>
-    <p>BAZATS Tom, MADEZO Oscar, NANDILLON Séverin</p>
+    <p>MADEZO Oscar, NANDILLON Séverin, BENETIER Paul.</p>
     <p>EPSI B3 DEV G2</p>
   </footer>
-
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -30,44 +30,36 @@
 
 <template name='films'>
 {{#if currentUser}}
-  {{ #if doitSafficher }}
-    <div class="accordion" id='accordion'>
-      {{ #each movies }}
-      <div class="card">
-        <div class="card-header" id="headingOne">
-            <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target='#collapse_movie_{{ id }}' aria-expanded="false" aria-controls='collapse_movie_{{ id }}'>
-              {{ title }}
-            </button>
-        </div>
+<div class="IOT">
+  <div id="weather_wrapper">
+	  <div class="weatherCard">
+		  <div class="currentTemp">
+			  <span class="temp">23&deg;</span>
+			  <span class="location">Température</span>
+		  </div>
+	  </div>
+  </div>
 
-        <div id='collapse_movie_{{ id }}' class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-3">
-                <img src="https://www.themoviedb.org/t/p/w440_and_h660_face{{poster_path}}">
-              </div>
-              <div class="col-9">
-                <p><b>Résumé :</b> {{ overview }}</p>
-                <p><b>Popularité :</b> {{ popularity }}</p>
-                <p><b>Date : </b> {{ release_date }}</p>
-                <p><b>Langage :</b> {{ preferedLanguageName }}</p>
-                <button class="btn btn-info" data-id='{{ id }}'>Like : {{ like }}</button>
-              </div>
-            </div>
-          </div>
+  <div id="weather_wrapper">
+	  <div class="weatherCard">
+		  <div class="currentTemp">
+			  <span class="temp">23&deg;</span>
+			  <span class="location">Humidité</span>
+		  </div>
+	  </div>
+  </div>
+
+  <a href="#" id="addButton"  class="change">
+    <div id="weather_wrapper">
+      <div class="weatherCard">
+        <div class="currentTemp">
+          <span class="location">LED</span>
         </div>
       </div>
-      {{ /each }}
     </div>
-  {{ else }}
-    <div class="row">
-      <div class="col-5"></div>
-      <div class="col-2">
-        <h4 style="text-align: center;">Aucun film à afficher.</h4>
-      </div>
-      <div class="col-5"></div>
-    </div>
-  {{ /if }}
+  </a>
+  
+</div>
 {{/if}}
 </template>
 
@@ -75,9 +67,7 @@
 {{#if currentUser}}
   {{ #if doitSafficher }}
     <div style='text-align: center; margin-bottom: 20px; margin-top: 20px;'>
-      <button style='display: inline;' id='pagePrecedente' class="btn btn-outline-info">&laquo;</button>
-      <span style='display: inline;' class='pagination'>{{ page }}</span>
-      <button style='display: inline;' id='pageSuivante' class="btn btn-outline-info">&raquo;</button>
+
     </div>
   {{ /if }}
 {{/if}}
@@ -86,35 +76,20 @@
 <template name='filterselect'>
   <div class="row">
     <div id="filterform" class="col-md-2">
-      <select id="filter" class="form-control">
-        <option value="">-- Aucun filtre --</option>
-        <option value="3">Popularité : par ordre croissant</option>
-        <option value="4">Popularité : par ordre décroissant</option>
-      </select>
+
     </div>
     <div id="filterform" class="col-md-2">
-      <select id='genres' class='form-control'>
-        <option value="">-- Aucun genre --</option>
-        {{ #each genres }}
-        <option value='{{ id }}'>{{ name }}</option>
-        {{ /each }}
-      </select>
+      
     </div>
     <div id="filterform" class="col-md-1">
-      <input class="form-control" type="number" id="date" placeholder="Filtrer par année..." value='{{ dateDefaultValue }}'>
+
     </div>
     <div id="filterform" class="col-md-1">
-      <input class="form-control" type="text" id="search" placeholder="Filtrer par titre..." value='{{ inputDefaultValue }}'>
+
     </div>
     <div class="col-md-4"></div> 
     <div id="filterform" class="input-group col-md-2">
-      <label class="input-group-text" for="languages">Langage par défaut</label>
-      <select id='languages' class="form-select">
-        <option value='{{ preferedLanguageIso }}'>{{ preferedLanguageName }}</option>
-        {{ #each languages }}
-        <option value='{{ iso_639_1 }}'>{{ english_name }}</option>
-        {{ /each }}
-      </select>
+      
     </div>
   </div>
 </template>

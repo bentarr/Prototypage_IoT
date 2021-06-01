@@ -27,3 +27,65 @@ img {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.connexion{
+  bottom: 450px;
+  position: fixed;
+}
+
+.display-4{
+  text-align: center;
+}
+
+.IOT{
+  text-align: center;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+#weather_wrapper{
+	width: 400px;
+	margin: 10px ;
+  display: inline-block;
+}
+.weatherCard{
+	width: 400px;
+	height: 200px;
+	font-family: 'Open Sans';
+	position: relative;
+}
+.currentTemp{
+	width: 400px;
+	height: 200px;
+	background: rgb(41, 41, 41);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.currentWeather{
+	width: 180px;
+	height: 200px;
+	background: rgb(237, 237, 237);
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.temp{
+	font-size: 80px;
+	text-align: center;
+	display: block;
+	font-weight: 300;
+	color: rgb(255, 255, 255);
+	padding: 20px 0 0;
+}
+.location{
+	color: rgb(255, 255, 255);
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 30px;
+	display: block;
+}
+

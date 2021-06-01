@@ -24,6 +24,8 @@ var filtreSearch = new ReactiveVar(false);
 
 // [Template] Films
 
+
+
 Template.films.onCreated(function filmsOnCreated() {
   recupererTousLesGenres();
   recupererLangagePrefere();
@@ -37,9 +39,9 @@ Template.films.helpers({
 });
 
 Template.films.events({
-  'click button'(event, instance) {
-    const idMovie = event.currentTarget.dataset.id;
-    updateLikeMovie(idMovie);
+  'click #addButton'(event, instance) {
+    document.body.style.color = "purple";
+    return false;
   }
 });
 
