@@ -39,10 +39,7 @@ Template.films.helpers({
 });
 
 Template.films.events({
-  'click #addButton'(event, instance) {
-    document.body.style.color = "purple";
-    return false;
-  }
+  //
 });
 
 // [Template] Pagination
