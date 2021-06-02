@@ -14,7 +14,9 @@
     <p class="connexion"> Connexion : {{> loginButtons}} </p>
   </div>
 
-  {{> films}}
+  {{> temp}}
+  {{> hum}}
+  {{> led}}
 
 
   <footer class="footer">
@@ -28,28 +30,49 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
-<template name='films'>
+<template name='temp'>
 {{#if currentUser}}
-<div class="IOT">
+  <div class="IOT">
+    <div id="weather_wrapper">
+	    <div class="weatherCard">
+		    <div class="currentTemp">
+			    {{#if temp}}
+            {{#each t in temp}}
+            <span class="temp">{{ t.celsius.value }} {{ t.celsius.unit }}</span>
+			      <span class="location">Température</span>
+            {{/each}}
+          {{else}}
+            <p style="color: white;">Aucune température</p>
+          {{/if}}
+		    </div>
+	    </div>
+    </div>
+  </div>
+{{/if}}
+</template>
+
+<template name="hum">
+{{#if currentUser}}
   <div id="weather_wrapper">
 	  <div class="weatherCard">
 		  <div class="currentTemp">
-			  <span class="temp">23&deg;</span>
-			  <span class="location">Température</span>
+			  {{#if hum}}
+          {{#each h in hum}}
+          <span class="temp">{{ h.humidity.value }} {{ h.humidity.unit }}</span>
+			    <span class="location">Humidité</span>
+          {{/each}}
+        {{else}}
+          <p>Aucune humidité</p>
+        {{/if}}
 		  </div>
 	  </div>
   </div>
+{{/if}}
+</template>
 
-  <div id="weather_wrapper">
-	  <div class="weatherCard">
-		  <div class="currentTemp">
-			  <span class="temp">23&deg;</span>
-			  <span class="location">Humidité</span>
-		  </div>
-	  </div>
-  </div>
-
-  <a href="#" id="addButton"  class="change">
+<template name="led">
+{{#if currentUser}}
+  <button href="#" id="addButton" class="btn btn-outline-info">
     <div id="weather_wrapper">
       <div class="weatherCard">
         <div class="currentTemp">
@@ -57,39 +80,6 @@
         </div>
       </div>
     </div>
-  </a>
-  
-</div>
+  </button>
 {{/if}}
-</template>
-
-<template name='pagination'>
-{{#if currentUser}}
-  {{ #if doitSafficher }}
-    <div style='text-align: center; margin-bottom: 20px; margin-top: 20px;'>
-
-    </div>
-  {{ /if }}
-{{/if}}
-</template>
-
-<template name='filterselect'>
-  <div class="row">
-    <div id="filterform" class="col-md-2">
-
-    </div>
-    <div id="filterform" class="col-md-2">
-      
-    </div>
-    <div id="filterform" class="col-md-1">
-
-    </div>
-    <div id="filterform" class="col-md-1">
-
-    </div>
-    <div class="col-md-4"></div> 
-    <div id="filterform" class="input-group col-md-2">
-      
-    </div>
-  </div>
 </template>

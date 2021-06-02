@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 body {
   padding: 1%;
 }
@@ -6,6 +7,7 @@ body {
   bottom: 80px;
   text-align: center;
   height: 80px;
+  display: inline-block;
   background-color: white;
   color: black;
   width: 100%;
@@ -28,10 +30,7 @@ img {
   margin-bottom: 20px;
 }
 
-.connexion{
-  bottom: 450px;
-  position: fixed;
-}
+
 
 .display-4{
   text-align: center;
@@ -41,13 +40,11 @@ img {
   text-align: center;
 }
 
-
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 #weather_wrapper{
 	width: 400px;
 	margin: 10px ;
-  display: inline-block;
+  position: initial;
+  float: inline-start;
 }
 .weatherCard{
 	width: 400px;
