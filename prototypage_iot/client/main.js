@@ -84,8 +84,6 @@ Template.led.events({
         'http://localhost:3000/high_temp',
         {},
         () => {
-          highTempHasPublished.set(true);
-          lowTempHasPublished.set(false);
           stateLed.set(true);
         }
       );   
@@ -95,11 +93,16 @@ Template.led.events({
           'http://localhost:3000/low_temp',
           {},
           () => {
-            highTempHasPublished.set(false);
-            lowTempHasPublished.set(true);
+            
             stateLed.set(false);
           }
         );
     } 
   }
 })
+
+Template.led.helpers({
+  stateLed() {
+    return stateLed.get();
+  }
+});

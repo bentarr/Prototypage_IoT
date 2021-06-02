@@ -55,11 +55,26 @@ img {
 .currentTemp{
 	width: 400px;
 	height: 200px;
-	background: rgb(41, 41, 41);
+  background: rgb(41, 41, 41);
 	position: absolute;
 	top: 0;
 	left: 0;
 }
+
+.hidden {
+  background-color: green;
+}    .hidden {
+  background-color: green;
+}
+
+.currentTempLed{
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 .currentWeather{
 	width: 180px;
 	height: 200px;

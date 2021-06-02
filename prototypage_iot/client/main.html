@@ -75,9 +75,15 @@
   <button href="#" id="addButton" class="btn btn-outline-info">
     <div id="weather_wrapper">
       <div class="weatherCard">
-        <div class="currentTemp">
-          <span class="location">LED</span>
-        </div>
+        {{#if stateLed}}
+          <div class="currentTempLed" style="background: rgb(79, 255, 4);">
+            <span class="location">LED</span>
+          </div>
+        {{ else }}
+          <div class="currentTempLed" style="background: rgb(255, 30, 0);">
+            <span class="location">LED</span>
+          </div>
+        {{/if}}
       </div>
     </div>
   </button>
